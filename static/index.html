@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        (function(){
+            var setCounter = function(counter, method) {
+                xhr = new XMLHttpRequest();
+                xhr.open(method, "/counter", true);
+                xhr.responseType = 'json';
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        counter.innerText = xhr.response.counter
+                    }
+                };
+                xhr.send();
+            };
+            window.onload = function(){
+                var btn = document.getElementById("button");
+                var counter = document.getElementById("counter");
+                setCounter(counter, "GET");
+                btn.onclick = function() {
+                    counter.innerText= parseInt(counter.innerText) + 1;
+                    setCounter(counter, "PUT")
+                }
+            };
+        })();
+    </script>
+    <style>
+        body {
+            padding: 10px;
+        }
+        #button {
+            height: 100px;
+            width: 100px;
+            background: red;
+            padding: 20px;
+        }
+        p {
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="button">
+    <p id="counter"></p>
+</div>
+</body>
+</html>
