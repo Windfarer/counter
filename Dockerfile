@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 RUN pip install gunicorn
 
 EXPOSE 8000
-ENTRYPOINT ["gunicorn","-w 4", "counter:app"]
+ENTRYPOINT ["gunicorn","-w 4", "-b 0.0.0.0:80", "counter:app"]
