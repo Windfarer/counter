@@ -1,8 +1,12 @@
 from flask import Flask, jsonify, current_app
 import redis
+import os
 
+REDIS_HOST = os.environ.get('REDIS_PORT_6379_TCP_ADDR')
+REDIS_PORT = os.environ.get('REDIS_PORT_6379_TCP_PORT')
+REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD')
 app = Flask(__name__)
-app.redis = redis.Redis(host='localhost')
+app.redis = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD)
 
 
 @app.before_first_request
