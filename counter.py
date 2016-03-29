@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, current_app, send_file, request
+from flask import Flask, jsonify, current_app, send_file, request, render_template
 import redis
 import os
 
@@ -17,7 +17,7 @@ def init_redis():
 
 @app.route('/')
 def index():
-    return send_file('static/index.html')
+    return render_template('index.html', counter=int(current_app.redis.get('counter')))
 
 
 @app.route('/counter', methods=["GET", "PUT"])
