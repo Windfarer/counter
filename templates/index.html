@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Pressure-relief Button</title>
     <script>
         (function(){
@@ -28,13 +29,23 @@
     </script>
     <style>
         body {
-            padding: 10px;
+            padding: 50px;
         }
-        #button {
-            height: 100px;
-            width: 100px;
-            background: red;
-            padding: 20px;
+        #button, #button:hover, #button:active {
+            margin-left: auto;
+            margin-right: auto;
+            width: 150px;
+            height: 130px;
+            background: rgba(88, 87, 84, 0.61);
+            box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.19);
+        }
+        #button:hover {
+            background: rgba(147, 145, 139, 0.61);
+            box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.10), 0 14px 24px 0 rgba(0, 0, 0, 0.13);
+        }
+        #button:active {
+            background: rgba(61, 60, 57, 0.61);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.5);
         }
         p {
             moz-user-select: -moz-none;
@@ -44,8 +55,13 @@
             -webkit-user-select:none;
             -ms-user-select:none;
             user-select:none;
+            padding-top: 45px;
             text-align: center;
-            font-size: 30px;
+            line-height: 100%;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 40px;
+            color: white;
+{#            text-shadow: 2px 2px 2px #000000;#}
         }
     </style>
 </head>
