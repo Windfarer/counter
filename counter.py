@@ -23,7 +23,7 @@ def index():
 @app.route('/counter', methods=["GET", "PUT"])
 def get_counter():
     if request.method == 'PUT':
-        current_app.redis.incr('counter')
+        current_app.redis.decr('counter')
     return jsonify({"counter": int(current_app.redis.get('counter'))})
 
 if __name__ == '__main__':
