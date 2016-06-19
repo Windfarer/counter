@@ -1,4 +1,4 @@
-FROM daocloud.io/python:latest
+FROM python:latest
 MAINTAINER windfarer <windfarer@gmail.com>
 
 RUN mkdir /counter
